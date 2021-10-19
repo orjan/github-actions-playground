@@ -34,3 +34,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: View context attributes
+        uses: actions/github-script@v5
+        with:
+          script: console.log(context)
