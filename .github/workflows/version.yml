@@ -36,6 +36,15 @@ jobs:
           echo test, and deploy your project.
 
       - name: View context attributes
+        id: build-version
         uses: actions/github-script@v5
         with:
-          script: console.log(context)
+          script: |
+            console.log(context)
+            const year = "2020"
+            const month = "10"
+            const sha = "aaaa111"
+            const buildNumber = "2313"
+            return {
+              version: `${year}.${month}.0-alpha.${buildNumber}.sha.${sha}`
+            }
