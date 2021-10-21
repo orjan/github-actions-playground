@@ -41,7 +41,8 @@ jobs:
         with:
           script: |
             console.log(context)
-            const resolveIdentifer = (branch) => switch(branch) {
+            const resolveIdentifer = (branch) => {
+              switch(branch) {
                 case 'refs/heads/main':
                 case 'refs/heads/master':
                   return 'r'
@@ -50,6 +51,7 @@ jobs:
                 default:
                   return 'alpha'
               }
+            }
             const [year, month] = new Date().toISOString().split('-')
             const identifier = 'r'
             const sha = "aaaa111"
