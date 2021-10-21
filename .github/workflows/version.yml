@@ -41,12 +41,11 @@ jobs:
         with:
           script: |
             console.log(context)
-            const year = "2020"
-            const month = "10"
+            const [year, month] = new Date().toISOString().split('-')
+            const identifier = 'r'
             const sha = "aaaa111"
             const buildNumber = "2313"
-            return {
-              version: `${year}.${month}.0-alpha.${buildNumber}.sha.${sha}`
-            }
+            return `${year}.${month}.0-${identifier}.${buildNumber}.sha.${sha}`
+          result-encoding: string
       - name: Get result
-        run: echo "${{steps.build-version.outputs.result.version}}"
+        run: echo "${{ steps.build-version.outputs.result }}"
