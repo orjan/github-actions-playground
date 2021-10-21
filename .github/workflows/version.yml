@@ -43,12 +43,9 @@ jobs:
             const resolveIdentifer = (branch) => {
               switch(branch) {
                 case 'refs/heads/main':
-                case 'refs/heads/master':
-                  return 'r'
-                case 'refs/heads/develop':
-                  return 'beta'
-                default:
-                  return 'alpha'
+                case 'refs/heads/master': return 'r'
+                case 'refs/heads/develop': return 'beta'
+                default: return 'alpha'
               }
             }
             const [year, month] = new Date().toISOString().split('-')
