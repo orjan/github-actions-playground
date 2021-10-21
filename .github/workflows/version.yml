@@ -35,12 +35,11 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: View context attributes
+      - name: Calculate application version
         id: build-version
         uses: actions/github-script@v5
         with:
           script: |
-            console.log(context)
             const resolveIdentifer = (branch) => {
               switch(branch) {
                 case 'refs/heads/main':
