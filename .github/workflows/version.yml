@@ -53,10 +53,10 @@ jobs:
               }
             }
             const [year, month] = new Date().toISOString().split('-')
-            const identifier = 'r'
-            const sha = "aaaa111"
-            const buildNumber = "2313"
-            return `${year}.${month}.0-${resolveIdentifer(context.ref)}.${context.runId}.sha.${sha}`
+            const sha = context.sha.substring(0,7)
+            const identifier = resolveIdentifer(context.ref)
+            const runId = context.runId
+            return `${year}.${month}.0-${identifier}.${runId}.sha.${sha}`
           result-encoding: string
       - name: Get result
-        run: echo "${{ steps.build-version.outputs.result }} > ${{ github.run_id }}"
+        run: echo "${{ steps.build-version.outputs.result }}"
