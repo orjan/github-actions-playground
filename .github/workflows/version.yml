@@ -41,8 +41,7 @@ jobs:
         with:
           script: |
             console.log(context)
-            const resolveIdentifer = (branch) =>
-              switch(branch) {
+            const resolveIdentifer = (branch) => switch(branch) {
                 case 'refs/heads/main':
                 case 'refs/heads/master':
                   return 'r'
